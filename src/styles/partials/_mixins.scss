@@ -1,0 +1,161 @@
+@use './variables' as *;
+@use './typography' as *;
+
+// Responsiveness
+@mixin tablet {
+    @media(min-width: 768px){
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media(min-width: 1280px){
+        @content;
+    }
+}
+
+// Display Flex
+@mixin flexbox ($direction: row, $gap: 0, $wrap: nowrap) {
+    display: flex;
+    flex-direction: $direction;
+    gap: $gap;
+    flex-wrap: $wrap;
+}
+
+
+// Padding
+@mixin padding-mobile ($padding-top: 1.5rem) {
+    padding-top: $padding-top;
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 1rem;
+}
+
+@mixin padding-tablet ($padding-top: 2.25rem) {
+    padding-top: $padding-top;
+    padding-right: 1.5rem;
+    padding-bottom: 1.5rem;
+    padding-left: 1.5rem;
+}
+
+// Images & Logo
+@mixin images {
+    border-radius: .25rem;
+    background-color: $color-mercury;
+}
+
+@mixin logo {
+    max-height: 1.5625rem;
+    max-width: 7.5rem;
+}
+
+// Button CTA
+@mixin button-default {
+    height: 2.5rem;
+    // min-width: 9.375rem;
+    padding: 2rem;
+    border-radius: .25rem;
+    background-color: $color-blue;
+    color: $color-white;
+}
+
+@mixin button-hover {
+    background-color: $color-darkBlue;
+}
+
+
+// Form Fields
+@mixin form-field {
+    min-height: 2.25rem;
+    min-width: 15rem;
+    // width: 100%;
+    border: .0625rem solid $color-mercury;
+    border-radius: .25rem;
+    padding: .75rem;
+}
+
+@mixin form-field-active {
+    border: .125rem solid $color-blue;
+}
+
+@mixin form-field-error {
+    border: .0625rem solid $color-red;
+}
+
+
+// Profile Picture
+@mixin profile-mobile {
+    border-radius: 50%;
+    max-width: 2.25rem;
+    max-width: 2.25rem;
+    background-color: $color-mercury;
+}
+
+@mixin profile-tablet {
+    max-width: 2.5rem;
+    max-width: 2.5rem;
+}
+
+
+// Mobile-Fonts
+@mixin h1-mobile {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: $bold;
+}
+
+@mixin h2-mobile {
+    font-size: .75rem;
+    line-height: 1.25rem;
+    font-weight: $bold;
+}
+
+@mixin h3-mobile {
+    font-size: .8125rem;
+    line-height: 1.125rem;
+    font-weight: $bold;
+}
+
+@mixin p-mobile {
+    font-size: .8125rem;
+    line-height: 1.125rem;
+    font-weight: $regular;
+}
+
+@mixin h4-mobile {
+    font-size: .625rem;
+    line-height: 1.25rem;
+    font-weight: $bold;
+}
+
+// Tablet-Fonts
+@mixin h1-tablet {
+    font-size: 2.0625rem;
+    line-height: 2.75rem;
+    font-weight: $bold;
+}
+
+@mixin h2-tablet {
+    font-size: .75rem;
+    line-height: 1.25rem;
+    font-weight: $bold;
+}
+
+@mixin h3-tablet {
+    font-size: .875rem;
+    line-height: 1.375rem;
+    font-weight: $bold;
+}
+
+@mixin p-tablet {
+    font-size: .875rem;
+    line-height: 1.375rem;
+    font-weight: $regular;
+}
+
+@mixin h4-tablet {
+    font-size: .75rem;
+    line-height: 1.25rem;
+    font-weight: $bold;
+}
+
