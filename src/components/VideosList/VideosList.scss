@@ -4,7 +4,7 @@
 @use "../../styles/partials/typography" as *;
 
 .videos-list {
-    @include flexbox (row, 1rem);
+    @include flexbox (column, 1rem);
     // @include padding-mobile (1rem);
     background-color: $color-white;
     width: 100%;
@@ -23,10 +23,17 @@
             width: 70rem;
         }
 
+    &__alignment {
+        @include flexbox (row, 1rem);
+    }
+
     &__image {
-        width: 1rem;
-        border-radius: .25rem;
-        background-color: $color-mercury;
+        @include flexbox;
+        height: 3.5rem;
+        width: 5.5rem;
+        object-fit: cover;
+        @include images;
+        align-items: center;
     }
 
     &__container {
@@ -35,6 +42,7 @@
 
     &__subcontainer {
         @include flexbox (column);
+        justify-content: space-between;
 
         @include tablet {
             @include flexbox (column);
@@ -44,15 +52,20 @@
     &__title {
         margin: 0;
         @include h4-mobile;
+        font-size: 0.8rem;
+        font-weight: $demi;
+        line-height: 0.9rem;
 
         @include tablet {
             @include h4-tablet;
+            font-weight: $demi;
         }
     }
 
     &__author {
         margin: 0;
         @include h4-mobile;
+        font-size: 0.8rem;
         font-weight: $regular;
 
         @include tablet {
