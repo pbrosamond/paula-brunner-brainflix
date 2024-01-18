@@ -15,12 +15,13 @@
            @include flexbox (column);
            @include padding-tablet;
            justify-content: space-between;
-           max-width: 70rem;
+           max-width: 67rem;
            margin: 0 auto;        
        }
 
        @include desktop {
-           width: 70rem;
+           padding-right: 0;
+           width: 50rem
        }
 
     &__items {
@@ -31,6 +32,10 @@
 
         @include tablet {
             margin-bottom: 1.25rem;
+        }
+
+        @include desktop {
+            padding-right: 1.5rem;
         }
     }
 
@@ -94,6 +99,10 @@
         @include tablet {
             @include h4-tablet;
             font-weight: $regular;
+        }
+
+        @include desktop {
+            padding-right: 1.5rem;
         }
     }
 

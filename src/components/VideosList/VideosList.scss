@@ -5,18 +5,13 @@
 
 .videos-list {
     @include flexbox (column, 1rem);
-    // @include padding-mobile (1rem);
     background-color: $color-white;
     width: 100%;
 
         // Start of Responsiveness
         @include tablet {
-            @include flexbox;
-            @include padding-tablet (1.5rem);
             justify-content: space-between;
-            max-width: 30rem;
-            margin: 0 auto;
-            height: 5.6rem;            
+            max-width: 16rem;          
         }
 
         @include desktop {
@@ -59,6 +54,7 @@
         @include tablet {
             @include h4-tablet;
             font-weight: $demi;
+            line-height: 1rem;
         }
     }
 

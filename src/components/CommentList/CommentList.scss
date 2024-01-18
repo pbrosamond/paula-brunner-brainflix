@@ -13,11 +13,7 @@
             @include flexbox (column, 1.25rem);
             padding: 1.25rem 0;
             justify-content: space-between;
-            max-width: 70rem;       
-        }
- 
-        @include desktop {
-            max-width: 70rem;
+            // max-width: 50rem;       
         }
 
     &__comment {
@@ -41,7 +37,7 @@
         }
 
         @include desktop {
-            gap: 2rem;
+            padding-right: 1.5rem;
         }
     }
 
