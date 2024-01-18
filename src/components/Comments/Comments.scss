@@ -7,6 +7,7 @@
 .comments {
    @include flexbox (column);
    @include padding-mobile (0);
+   padding-bottom: 0;
    background-color: $color-white;
 
        // Start of Responsiveness
