@@ -12,7 +12,9 @@ function Comments() {
                     <div class="comments__input">
                         <label class="comments__label">JOIN THE CONVERSATION</label>
                         <textarea class="comments__text-area" placeholder="Add a new comment" rows="4" required></textarea>                    </div>
-                    <button class="comments__button">COMMENT</button>
+                    <div>
+                        <button class="comments__button">COMMENT</button>
+                    </div>
                 </form>
             </div>
             <CommentList />

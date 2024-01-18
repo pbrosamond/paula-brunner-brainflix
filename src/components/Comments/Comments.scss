@@ -6,13 +6,13 @@
 
 .comments {
    @include flexbox (column);
-   @include padding-mobile;
+   @include padding-mobile (0);
    background-color: $color-white;
 
        // Start of Responsiveness
        @include tablet {
            @include flexbox (column);
-           @include padding-tablet;
+           @include padding-tablet (0);
            justify-content: space-between;
            max-width: 70rem;
            margin: 0 auto;        
@@ -36,7 +36,8 @@
         padding-bottom: 1rem;
 
         @include tablet {
-            gap: 1.25rem
+            gap: 1.25rem;
+            padding-bottom: 1.25rem;
         }
 
         @include desktop {
@@ -52,6 +53,12 @@
     &__form {
         @include flexbox (column, 1rem);
         width: 100%;
+
+        @include tablet {
+            @include flexbox (row, 1.25rem);
+            align-items: flex-end;
+            width: 100%;
+        }
     }
 
     &__input {
@@ -62,6 +69,7 @@
 
         @include tablet {
             @include h3-tablet;
+            width: 100%;
         }
     }
 
@@ -72,6 +80,10 @@
         padding: .625rem;
         background-color: $color-alabaster;
         font-family: $font-family;
+
+        @include tablet {
+            height: 2.5rem;
+        }
 
         &:focus {
             outline: 1px solid $color-blue;
@@ -92,7 +104,7 @@
 
             // Start of Responsiveness
             @include tablet {
-                width: 10rem;
+                width: 11.25rem;
             }
 
         &:hover {
