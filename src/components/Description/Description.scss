@@ -1,0 +1,101 @@
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+
+
+.description {
+   @include flexbox (column, 1rem);
+   @include padding-mobile;
+   background-color: $color-white;
+
+
+       // Start of Responsiveness
+       @include tablet {
+           @include flexbox (column);
+           @include padding-tablet;
+           justify-content: space-between;
+           max-width: 70rem;
+           margin: 0 auto;        
+       }
+
+       @include desktop {
+           width: 70rem;
+       }
+
+    &__items {
+        @include flexbox;
+        justify-content: space-between;
+        border-bottom: 1px solid $color-mercury;
+        padding-bottom: 1rem;
+
+        @include tablet {
+            margin-bottom: 1.25rem;
+        }
+    }
+
+    &__container {
+        @include flexbox (column, 1rem);
+
+        @include tablet {
+            @include flexbox (row, 2rem);
+        }
+    }
+
+    &__subcontainer {
+        @include flexbox (row, 1rem);
+
+        @include tablet {
+            @include flexbox (row, 0.5rem);
+        }
+    }
+
+    &__title {
+        margin: 0;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid $color-mercury;
+        @include h1-mobile;
+
+        @include tablet {
+            @include h1-tablet;
+            border-bottom: none;
+        }
+    }
+
+    &__details {
+        @include flexbox;
+        align-items: center;
+        margin: 0;
+        @include h4-mobile;
+        font-weight: $regular;
+        color: $color-silver;
+
+        @include tablet {
+            @include h4-tablet;
+            font-weight: $regular;
+        }
+
+    }
+
+    &__author {
+        margin: 0;
+        @include h3-mobile;
+
+        @include tablet {
+            @include h3-tablet;
+        }
+    }
+
+    &__text {
+        margin: 0;
+        @include h4-mobile;
+        font-weight: $regular;
+
+        @include tablet {
+            @include h4-tablet;
+            font-weight: $regular;
+        }
+    }
+
+
+   }
