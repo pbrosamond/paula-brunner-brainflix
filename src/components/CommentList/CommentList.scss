@@ -1,0 +1,90 @@
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+
+.comment-list {
+    @include flexbox (column, 1rem);
+    padding: 1rem 0;
+    background-color: $color-white;
+
+        // Start of Responsiveness
+        @include tablet {
+            @include flexbox (column, 1.25rem);
+            padding: 1.25rem 0;
+            justify-content: space-between;
+            max-width: 70rem;       
+        }
+ 
+        @include desktop {
+            max-width: 70rem;
+        }
+
+    &__comment {
+        @include flexbox (row, 1rem);
+    }
+
+    &__profile {
+        @include profile;
+        width: 2.5rem;
+        border-radius: 50%;
+        background-color: $color-mercury;
+    }
+
+    &__container {
+        @include flexbox (row, 1rem);
+        border-bottom: 1px solid $color-mercury;
+        padding-bottom: 1rem;
+
+        @include tablet {
+            gap: 1.25rem
+        }
+
+        @include desktop {
+            gap: 2rem;
+        }
+    }
+
+    &__subcontainer {
+        @include flexbox (column);
+        width: 100%
+    }
+
+    &__details {
+        @include flexbox;
+        justify-content: space-between;
+    }
+
+    &__name {
+        @include h4-mobile;
+        margin: 0;
+
+        @include tablet {
+            @include h4-tablet;
+        }
+    }
+
+    &__date {
+        @include h4-mobile;
+        font-weight: $regular;
+        color: $color-silver;
+        margin: 0;
+
+        @include tablet {
+            @include h4-tablet;
+            font-weight: $regular;
+        }
+    }
+
+    &__text {
+        @include h4-mobile;
+        font-weight: $regular;
+        margin: 0;
+
+        @include tablet {
+            @include h4-tablet;
+            font-weight: $regular;
+        }
+    }
+
+}

@@ -2,9 +2,6 @@ import './Description.scss';
 import views from "../../assets/images/Icons/views.svg";
 import likes from "../../assets/images/Icons/likes.svg";
 
-
-
-
 function Description() {
    return (
        <section class="description">

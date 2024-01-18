@@ -62,7 +62,6 @@
 
     &__button {
         width: 100%;
-        border: none;
         background: url("../../assets/images/Icons/upload.svg") no-repeat .75rem center;
         @include button-default;
 
