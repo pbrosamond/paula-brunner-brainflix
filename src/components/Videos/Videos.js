@@ -1,11 +1,21 @@
 import './Videos.scss';
-import VideosList from '../VideosList/VideosList';
+import Video from '../Video/Video';
 
-function Videos() {
+import videoData from '../../data/video-details.json';
+
+const Videos = ({changeVideo, currentVideo}) => {
+
   return (
-    <section class="videos">
-        <h2 class="videos__title">NEXT VIDEOS</h2>
-        <VideosList />
+    <section className ="videos">
+        <h2 className ="videos__title">NEXT VIDEOS</h2>
+        <ul className ="videos-list">
+          {videoData.map((video) => {
+            return ( 
+              video.image!==currentVideo &&
+              <Video video={video} changeVideo={changeVideo}/>
+            )
+            })}
+        </ul>
     </section>
   );
 }
