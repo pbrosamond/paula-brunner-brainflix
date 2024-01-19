@@ -12,13 +12,17 @@ import './App.scss';
 
 function App() {
 
-  const [video, setVideo] = useState(videoData[0])
+  const [currentVideo, setVideo] = useState(videoData[0])
+
+  const setVideoFunction = (clickedVideo) => {
+    setVideo(clickedVideo)
+  };
 
   return ( 
     <main>
       <Header />
       <Hero 
-      image = {video.image}
+      currentVideo={currentVideo}
       />
       <section className ="section">
         <div className ="section__main">
@@ -26,8 +30,8 @@ function App() {
           <Comments />
         </div>
         <Videos 
-        changeVideo={setVideo}
-        currentVideo={video.image}
+        setVideoFunction={setVideoFunction}
+        currentVideo={currentVideo}
         />
       </section>
     </main>
