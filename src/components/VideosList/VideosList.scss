@@ -7,11 +7,13 @@
     @include flexbox (column, 1rem);
     background-color: $color-white;
     width: 100%;
+    padding-left: 0;
+    margin: 0;
 
         // Start of Responsiveness
         @include tablet {
             justify-content: space-between;
-            max-width: 16rem;          
+            max-width: 16rem;        
         }
 
         @include desktop {
@@ -50,7 +52,7 @@
         @include h4-mobile;
         font-size: 0.8rem;
         font-weight: $demi;
-        line-height: 0.9rem;
+        line-height: 1rem;
 
         @include tablet {
             @include h4-tablet;
