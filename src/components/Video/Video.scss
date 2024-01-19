@@ -3,7 +3,7 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/typography" as *;
 
-.videos-list {
+.video {
     @include flexbox (column, 1rem);
     background-color: $color-white;
     width: 100%;

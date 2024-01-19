@@ -5,7 +5,6 @@ import Comments from './components/Comments/Comments';
 import Videos from './components/Videos/Videos';
 
 import videoData from './data/video-details.json';
-
 import { useState } from 'react';
 
 import './App.scss';
@@ -26,7 +25,9 @@ function App() {
       />
       <section className ="section">
         <div className ="section__main">
-          <Description />
+          <Description 
+          currentVideo={currentVideo}
+          />
           <Comments />
         </div>
         <Videos 
