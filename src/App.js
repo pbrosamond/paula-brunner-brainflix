@@ -28,7 +28,9 @@ function App() {
           <Description 
           currentVideo={currentVideo}
           />
-          <Comments />
+          <Comments 
+          comments={currentVideo.comments}
+          />
         </div>
         <Videos 
         setVideoFunction={setVideoFunction}

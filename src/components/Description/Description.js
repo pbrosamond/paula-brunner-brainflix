@@ -1,6 +1,7 @@
 import './Description.scss';
 import viewsIcon from "../../assets/images/Icons/views.svg";
 import likesIcon from "../../assets/images/Icons/likes.svg";
+import { formatTimestamp } from '../../utils/utils';
 
 function Description({currentVideo}) {
 
@@ -10,7 +11,7 @@ function Description({currentVideo}) {
            <div className ="description__items">
                <div className ="description__container">
                    <p className ="description__author">{ currentVideo.channel }</p>
-                   <p className ="description__details">{ currentVideo.timestamp }</p>
+                   <p className ="description__details">{ formatTimestamp(currentVideo.timestamp) }</p>
                </div>
                <div className ="description__container">
                    <div className ="description__subcontainer">

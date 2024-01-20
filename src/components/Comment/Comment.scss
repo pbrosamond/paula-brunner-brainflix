@@ -3,7 +3,7 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/typography" as *;
 
-.comment-list {
+.comment {
     @include flexbox (column, 1rem);
     padding: 1rem 0;
     background-color: $color-white;
