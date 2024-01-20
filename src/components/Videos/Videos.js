@@ -11,9 +11,9 @@ const Videos = ({ currentVideo, setVideoFunction }) => {
       <ul className="video">
         {videoData.map((video) => {
           return (
-            video.image !== currentVideo.image && (
+            video.id !== currentVideo.id && (
               <Video
-                key={video.id}
+                key= {video.id}
                 video={video}
                 setVideoFunction={setVideoFunction}
               />

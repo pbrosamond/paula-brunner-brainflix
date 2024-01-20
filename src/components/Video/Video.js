@@ -4,7 +4,6 @@ const Video = ({ video, setVideoFunction }) => {
   return (
     <li
       className="video__alignment"
-      key={video.image}
       onClick={() => setVideoFunction(video)}
     >
       <div className="video__container">
