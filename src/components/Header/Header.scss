@@ -58,6 +58,14 @@
     &:focus {
       @include form-field-active;
     }
+
+    &::placeholder {
+      // Styles for the placeholder text
+      @include h3-mobile;
+      font-weight: $regular;
+      color: $color-black;
+      font-family: $font-family;
+    }
   }
 
   &__button {

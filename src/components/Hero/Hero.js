@@ -5,8 +5,6 @@ function Hero({ currentVideo }) {
     <section className="hero">
       <video
         className="hero__video"
-        width="100%"
-        height="auto"
         controls
         alt={currentVideo.title}
         poster={currentVideo.image}

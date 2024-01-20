@@ -26,9 +26,15 @@
 
   &__title {
     @include h3-mobile;
+    font-weight: $demi;
 
     @include tablet {
       @include h3-tablet;
+      font-weight: $demi;
+    }
+
+    @include desktop {
+      font-weight: $demi;
     }
   }
 
@@ -79,6 +85,11 @@
     }
   }
 
+  &__label {
+    @include h2-mobile;
+    font-weight: $demi;
+  }
+
   &__text-area {
     border: 1px solid $color-mercury;
     width: 100%;
@@ -97,9 +108,9 @@
 
     &::placeholder {
       // Styles for the placeholder text
-      @include h4-mobile;
+      @include h3-mobile;
       font-weight: $regular;
-      color: $color-darkBlack;
+      color: $color-black;
       font-family: $font-family;
     }
   }
