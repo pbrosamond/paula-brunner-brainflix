@@ -4,72 +4,72 @@
 @use "../../styles/partials/typography" as *;
 
 .video {
-    @include flexbox (column, 1rem);
-    background-color: $color-white;
-    width: 100%;
-    padding-left: 0;
+  @include flexbox(column, 1rem);
+  background-color: $color-white;
+  width: 100%;
+  padding-left: 0;
+  margin: 0;
+
+  // Start of Responsiveness
+  @include tablet {
+    justify-content: space-between;
+    max-width: 16rem;
+  }
+
+  @include desktop {
+    width: 70rem;
+    gap: 1.5rem;
+  }
+
+  &__alignment {
+    @include flexbox(row, 1rem);
+  }
+
+  &__image {
+    @include flexbox;
+    height: 3.5rem;
+    width: 5.5rem;
+    object-fit: cover;
+    @include images;
+    align-items: center;
+  }
+
+  &__container {
+    width: fit-content;
+  }
+
+  &__subcontainer {
+    @include flexbox(column);
+    justify-content: space-between;
+
+    @include tablet {
+      @include flexbox(column);
+    }
+  }
+
+  &__title {
     margin: 0;
+    @include h4-mobile;
+    font-size: 0.8rem;
+    font-weight: $demi;
+    line-height: 1rem;
 
-        // Start of Responsiveness
-        @include tablet {
-            justify-content: space-between;
-            max-width: 16rem;        
-        }
-
-        @include desktop {
-            width: 70rem;
-            gap: 1.5rem;
-        }
-
-    &__alignment {
-        @include flexbox (row, 1rem);
+    @include tablet {
+      @include h4-tablet;
+      font-weight: $demi;
+      line-height: 1rem;
     }
+  }
 
-    &__image {
-        @include flexbox;
-        height: 3.5rem;
-        width: 5.5rem;
-        object-fit: cover;
-        @include images;
-        align-items: center;
+  &__author {
+    margin: 0;
+    @include h4-mobile;
+    font-size: 0.8rem;
+    font-weight: $regular;
+
+    @include tablet {
+      @include h4-tablet;
+      font-weight: $regular;
     }
-
-    &__container {
-        width: fit-content;
-    }
-
-    &__subcontainer {
-        @include flexbox (column);
-        justify-content: space-between;
-
-        @include tablet {
-            @include flexbox (column);
-        }
-    }
-
-    &__title {
-        margin: 0;
-        @include h4-mobile;
-        font-size: 0.8rem;
-        font-weight: $demi;
-        line-height: 1rem;
-
-        @include tablet {
-            @include h4-tablet;
-            font-weight: $demi;
-            line-height: 1rem;
-        }
-    }
-
-    &__author {
-        margin: 0;
-        @include h4-mobile;
-        font-size: 0.8rem;
-        font-weight: $regular;
-
-        @include tablet {
-            @include h4-tablet;
-            font-weight: $regular;
-        }
-    }
+  }
 }

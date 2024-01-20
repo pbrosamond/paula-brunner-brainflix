@@ -4,98 +4,99 @@
 @use "../../styles/partials/typography" as *;
 
 .header {
-    @include flexbox (column, 1rem);
-    @include padding-mobile (1rem);
-    background-color: $color-white;
+  @include flexbox(column, 1rem);
+  @include padding-mobile(1rem);
+  background-color: $color-white;
 
-        // Start of Responsiveness
-        @include tablet {
-            @include flexbox;
-            @include padding-tablet (1.5rem);
-            justify-content: space-between;
-            max-width: 70rem;
-            margin: 0 auto;
-            height: 5.6rem;            
+  // Start of Responsiveness
+  @include tablet {
+    @include flexbox;
+    @include padding-tablet(1.5rem);
+    justify-content: space-between;
+    max-width: 70rem;
+    margin: 0 auto;
+    height: 5.6rem;
+  }
 
-        }
+  @include desktop {
+    width: 70rem;
+  }
 
-        @include desktop {
-            width: 70rem;
-        }
+  &__logo {
+    @include logo;
+    align-self: center;
+  }
 
-    &__logo {
-        @include logo;
-        align-self: center;
+  &__items {
+    @include flexbox(column, 1rem);
+
+    // Start of Responsiveness
+    @include tablet {
+      @include flexbox(row, 1rem);
+      align-items: center;
+    }
+  }
+
+  &__container {
+    @include flexbox;
+    justify-content: space-between;
+
+    // Start of Responsiveness
+    @include tablet {
+      align-items: center;
+    }
+  }
+
+  &__search {
+    @include form-field;
+    padding-left: 2.5rem;
+    background: url("../../assets/images/Icons/search.svg") no-repeat 0.75rem
+      center;
+    background-color: $color-alabaster;
+    color: $color-silver;
+
+    &:focus {
+      @include form-field-active;
+    }
+  }
+
+  &__button {
+    width: 100%;
+    background: url("../../assets/images/Icons/upload.svg") no-repeat 0.75rem
+      center;
+    @include button-default;
+
+    // Start of Responsiveness
+    @include tablet {
+      width: 11.25rem;
     }
 
-    &__items {
-        @include flexbox (column, 1rem);
+    &:hover {
+      @include button-hover;
+    }
+  }
 
-            // Start of Responsiveness
-            @include tablet {
-                @include flexbox (row, 1rem);
-                align-items: center;
-            }
+  &__profile {
+    @include profile;
+
+    // Start of Responsiveness
+    @include tablet {
+      display: none;
     }
 
-    &__container {
-        @include flexbox;
-        justify-content: space-between;
+    &--tablet {
+      @include profile;
+      display: none;
 
-            // Start of Responsiveness
-            @include tablet {
-                align-items: center;
-            }
+      // Start of Responsiveness
+      @include tablet {
+        display: block;
+      }
+
+      // Start of Responsiveness
+      @include desktop {
+        margin-left: 1rem;
+      }
     }
-
-    &__search {
-        @include form-field;
-        padding-left: 2.5rem;
-        background: url("../../assets/images/Icons/search.svg") no-repeat .75rem center;
-        background-color: $color-alabaster;
-        color: $color-silver;
-
-        &:focus {
-            @include form-field-active;
-        }
-    }
-
-    &__button {
-        width: 100%;
-        background: url("../../assets/images/Icons/upload.svg") no-repeat .75rem center;
-        @include button-default;
-
-            // Start of Responsiveness
-            @include tablet {
-                width: 11.25rem;
-            }
-
-        &:hover {
-            @include button-hover;
-        }
-    }
-
-    &__profile {
-        @include profile;
-
-            // Start of Responsiveness
-            @include tablet {
-                display: none;    
-            }
-
-        &--tablet {
-            @include profile;
-            display: none;
-
-            // Start of Responsiveness
-            @include tablet {
-               display: block;
-            }
-
-            // Start of Responsiveness
-            @include desktop {
-                margin-left: 1rem;
-            }
-        }
-    }
+  }
 }

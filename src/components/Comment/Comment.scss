@@ -4,82 +4,81 @@
 @use "../../styles/partials/typography" as *;
 
 .comment {
-    @include flexbox (column, 1rem);
-    padding: 1rem 0;
-    background-color: $color-white;
+  @include flexbox(column, 1rem);
+  padding: 1rem 0;
+  background-color: $color-white;
 
-        @include tablet {
-            @include flexbox (column, 1.25rem);
-            padding: 1.25rem 0;
-            justify-content: space-between;     
-        }
+  @include tablet {
+    @include flexbox(column, 1.25rem);
+    padding: 1.25rem 0;
+    justify-content: space-between;
+  }
 
-    &__comment {
-        @include flexbox (row, 1rem);
+  &__comment {
+    @include flexbox(row, 1rem);
+  }
+
+  &__profile {
+    @include profile;
+    width: 2.5rem;
+    border-radius: 50%;
+    background-color: $color-mercury;
+  }
+
+  &__container {
+    @include flexbox(row, 1rem);
+    border-bottom: 1px solid $color-mercury;
+    padding-bottom: 1rem;
+
+    @include tablet {
+      gap: 1.25rem;
+      padding-bottom: 1.25rem;
     }
 
-    &__profile {
-        @include profile;
-        width: 2.5rem;
-        border-radius: 50%;
-        background-color: $color-mercury;
+    @include desktop {
+      padding-right: 1.5rem;
     }
+  }
 
-    &__container {
-        @include flexbox (row, 1rem);
-        border-bottom: 1px solid $color-mercury;
-        padding-bottom: 1rem;
+  &__subcontainer {
+    @include flexbox(column);
+    width: 100%;
+  }
 
-        @include tablet {
-            gap: 1.25rem;
-            padding-bottom: 1.25rem;
-        }
+  &__details {
+    @include flexbox;
+    justify-content: space-between;
+  }
 
-        @include desktop {
-            padding-right: 1.5rem;
-        }
+  &__name {
+    @include h4-mobile;
+    margin: 0;
+
+    @include tablet {
+      @include h4-tablet;
     }
+  }
 
-    &__subcontainer {
-        @include flexbox (column);
-        width: 100%
+  &__date {
+    @include h4-mobile;
+    font-weight: $regular;
+    color: $color-silver;
+    margin: 0;
+
+    @include tablet {
+      @include h4-tablet;
+      font-weight: $regular;
     }
+  }
 
-    &__details {
-        @include flexbox;
-        justify-content: space-between;
+  &__text {
+    @include h4-mobile;
+    font-weight: $regular;
+    margin: 0;
+
+    @include tablet {
+      @include h4-tablet;
+      font-weight: $regular;
     }
-
-    &__name {
-        @include h4-mobile;
-        margin: 0;
-
-        @include tablet {
-            @include h4-tablet;
-        }
-    }
-
-    &__date {
-        @include h4-mobile;
-        font-weight: $regular;
-        color: $color-silver;
-        margin: 0;
-
-        @include tablet {
-            @include h4-tablet;
-            font-weight: $regular;
-        }
-    }
-
-    &__text {
-        @include h4-mobile;
-        font-weight: $regular;
-        margin: 0;
-
-        @include tablet {
-            @include h4-tablet;
-            font-weight: $regular;
-        }
-    }
-
+  }
 }

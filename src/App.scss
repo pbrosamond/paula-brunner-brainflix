@@ -4,16 +4,14 @@
 @use "./styles/partials/typography" as *;
 
 .section {
-    @include desktop {
-        @include flexbox;
-        max-width: 70rem;
-        margin: 0 auto;
-    
-        &__main {
-            @include flexbox (column);
-            max-width: 70%;
-        }
+  @include desktop {
+    @include flexbox;
+    max-width: 70rem;
+    margin: 0 auto;
+
+    &__main {
+      @include flexbox(column);
+      max-width: 70%;
     }
+  }
 }
-
-

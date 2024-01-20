@@ -4,17 +4,16 @@
 @use "../../styles/partials/typography" as *;
 
 .hero {
-    @include flexbox (column, 1rem);
-    background-color: $color-darkBlack;
+  @include flexbox(column, 1rem);
+  background-color: $color-darkBlack;
 
-        // Start of Responsiveness
-        @include tablet {
-            @include flexbox;
-            margin: 0 auto;        
+  // Start of Responsiveness
+  @include tablet {
+    @include flexbox;
+    margin: 0 auto;
+  }
 
-        }
-
-        @include desktop {
-            width: 70rem;
-        }
-    }
+  @include desktop {
+    width: 70rem;
+  }
+}

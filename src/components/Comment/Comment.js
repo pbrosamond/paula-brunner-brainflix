@@ -10,9 +10,7 @@ function Comment({ comment }) {
       <div className="comment__subcontainer">
         <div className="comment__details">
           <p className="comment__name">{comment.name}</p>
-          <p className="comment__date">
-            {formatTimestamp(comment.timestamp)}
-          </p>
+          <p className="comment__date">{formatTimestamp(comment.timestamp)}</p>
         </div>
         <p className="comment__text">{comment.comment}</p>
       </div>

@@ -1,40 +1,33 @@
-import Header from './components/Header/Header';
-import Hero from './components/Hero/Hero';
-import Description from './components/Description/Description';
-import Comments from './components/Comments/Comments';
-import Videos from './components/Videos/Videos';
+import Header from "./components/Header/Header";
+import Hero from "./components/Hero/Hero";
+import Description from "./components/Description/Description";
+import Comments from "./components/Comments/Comments";
+import Videos from "./components/Videos/Videos";
 
-import videoData from './data/video-details.json';
-import { useState } from 'react';
+import videoData from "./data/video-details.json";
+import { useState } from "react";
 
-import './App.scss';
+import "./App.scss";
 
 function App() {
-
-  const [currentVideo, setVideo] = useState(videoData[0])
+  const [currentVideo, setVideo] = useState(videoData[0]);
 
   const setVideoFunction = (clickedVideo) => {
-    setVideo(clickedVideo)
+    setVideo(clickedVideo);
   };
 
-  return ( 
+  return (
     <main>
       <Header />
-      <Hero 
-      currentVideo={currentVideo}
-      />
-      <section className ="section">
-        <div className ="section__main">
-          <Description 
-          currentVideo={currentVideo}
-          />
-          <Comments 
-          comments={currentVideo.comments}
-          />
+      <Hero currentVideo={currentVideo} />
+      <section className="section">
+        <div className="section__main">
+          <Description currentVideo={currentVideo} />
+          <Comments comments={currentVideo.comments} />
         </div>
-        <Videos 
-        setVideoFunction={setVideoFunction}
-        currentVideo={currentVideo}
+        <Videos
+          setVideoFunction={setVideoFunction}
+          currentVideo={currentVideo}
         />
       </section>
     </main>

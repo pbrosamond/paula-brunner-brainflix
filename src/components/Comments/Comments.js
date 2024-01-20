@@ -29,13 +29,10 @@ function Comments({ comments }) {
       </div>
 
       <div className="comment">
-
         {comments.map((comment) => {
           return <Comment key={comment.id} comment={comment} />;
         })}
-        
       </div>
-
     </section>
   );
 }

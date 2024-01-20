@@ -3,119 +3,120 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/typography" as *;
 
-
 .comments {
-   @include flexbox (column);
-   @include padding-mobile (0);
-   padding-bottom: 0;
-   background-color: $color-white;
+  @include flexbox(column);
+  @include padding-mobile(0);
+  padding-bottom: 0;
+  background-color: $color-white;
 
-       // Start of Responsiveness
-       @include tablet {
-           @include flexbox (column);
-           @include padding-tablet (0);
-           padding-bottom: 0;
-           justify-content: space-between;
-           max-width: 67rem;
-           margin: 0 auto;        
-       }
+  // Start of Responsiveness
+  @include tablet {
+    @include flexbox(column);
+    @include padding-tablet(0);
+    padding-bottom: 0;
+    justify-content: space-between;
+    max-width: 67rem;
+    margin: 0 auto;
+  }
 
-       @include desktop {
-           padding-right: 0;
-           width: 100%;
-       }
+  @include desktop {
+    padding-right: 0;
+    width: 100%;
+  }
 
-    &__title {
-        @include h3-mobile;
+  &__title {
+    @include h3-mobile;
 
-        @include tablet {
-            @include h3-tablet;
-        }
+    @include tablet {
+      @include h3-tablet;
+    }
+  }
+
+  &__container {
+    @include flexbox(row, 1rem);
+    border-bottom: 1px solid $color-mercury;
+    padding-bottom: 1rem;
+
+    @include tablet {
+      gap: 1.25rem;
+      padding-bottom: 1.25rem;
     }
 
-    &__container {
-        @include flexbox (row, 1rem);
-        border-bottom: 1px solid $color-mercury;
-        padding-bottom: 1rem;
+    @include desktop {
+      gap: 2rem;
+    }
+  }
 
-        @include tablet {
-            gap: 1.25rem;
-            padding-bottom: 1.25rem;
-        }
+  &__profile {
+    @include profile;
+    margin-top: 1.625rem;
+  }
 
-        @include desktop {
-            gap: 2rem;
-        }
+  &__form {
+    @include flexbox(column, 1rem);
+    width: 100%;
+
+    @include tablet {
+      @include flexbox(row, 1.25rem);
+      align-items: flex-end;
+      width: 100%;
     }
 
-    &__profile {
-        @include profile;
-        margin-top: 1.625rem;
+    @include desktop {
+      padding-right: 1.5rem;
+    }
+  }
+
+  &__input {
+    @include flexbox(column, 0.5rem);
+    @include h3-mobile;
+    color: $color-silver;
+    font-weight: $demi;
+
+    @include tablet {
+      @include h3-tablet;
+      width: 100%;
+    }
+  }
+
+  &__text-area {
+    border: 1px solid $color-mercury;
+    width: 100%;
+    border-radius: 0.25rem;
+    padding: 0.625rem;
+    background-color: $color-alabaster;
+    font-family: $font-family;
+
+    @include tablet {
+      height: 2.5rem;
     }
 
-    &__form {
-        @include flexbox (column, 1rem);
-        width: 100%;
-
-        @include tablet {
-            @include flexbox (row, 1.25rem);
-            align-items: flex-end;
-            width: 100%;
-        }
-
-        @include desktop {
-            padding-right: 1.5rem;
-        }
+    &:focus {
+      outline: 1px solid $color-blue;
     }
 
-    &__input {
-        @include flexbox (column, 0.5rem);
-        @include h3-mobile;
-        color: $color-silver;
-        font-weight: $demi;
+    &::placeholder {
+      // Styles for the placeholder text
+      @include h4-mobile;
+      font-weight: $regular;
+      color: $color-darkBlack;
+      font-family: $font-family;
+    }
+  }
 
-        @include tablet {
-            @include h3-tablet;
-            width: 100%;
-        }
+  &__button {
+    width: 100%;
+    background: url("../../assets/images/Icons/add_comment.svg") no-repeat
+      0.75rem center;
+    @include button-default;
+
+    // Start of Responsiveness
+    @include tablet {
+      width: 11.25rem;
     }
 
-    &__text-area {
-        border: 1px solid $color-mercury;
-        width: 100%;
-        border-radius: .25rem;
-        padding: .625rem;
-        background-color: $color-alabaster;
-        font-family: $font-family;
-
-        @include tablet {
-            height: 2.5rem;
-        }
-
-        &:focus {
-            outline: 1px solid $color-blue;
-        }
-
-        &::placeholder { // Styles for the placeholder text
-            @include h4-mobile;
-            font-weight: $regular;
-            color: $color-darkBlack;
-            font-family: $font-family;
-          }
+    &:hover {
+      @include button-hover;
     }
-
-    &__button {
-        width: 100%;
-        background: url("../../assets/images/Icons/add_comment.svg") no-repeat .75rem center;
-        @include button-default;
-
-            // Start of Responsiveness
-            @include tablet {
-                width: 11.25rem;
-            }
-
-        &:hover {
-            @include button-hover;
-        }
-    }
+  }
 }
