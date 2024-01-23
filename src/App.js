@@ -10,27 +10,15 @@ import { useState } from "react";
 import "./App.scss";
 
 function App() {
-  const [currentVideo, setVideo] = useState(videoData[0]);
-
-  const setVideoFunction = (clickedVideo) => {
-    setVideo(clickedVideo);
-  };
 
   return (
-    <main>
+    <BrowserRouter>
       <Header />
-      <Hero currentVideo={currentVideo} />
-      <section className="section">
-        <div className="section__main">
-          <Description currentVideo={currentVideo} />
-          <Comments comments={currentVideo.comments} />
-        </div>
-        <Videos
-          setVideoFunction={setVideoFunction}
-          currentVideo={currentVideo}
-        />
-      </section>
-    </main>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="upload" element={<VideoUploadPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
