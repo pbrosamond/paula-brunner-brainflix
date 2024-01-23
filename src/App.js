@@ -1,13 +1,10 @@
-import Header from "./components/Header/Header";
-import Hero from "./components/Hero/Hero";
-import Description from "./components/Description/Description";
-import Comments from "./components/Comments/Comments";
-import Videos from "./components/Videos/Videos";
-
-import videoData from "./data/video-details.json";
-import { useState } from "react";
-
 import "./App.scss";
+
+import Header from "./components/Header/Header";
+import HomePage from "./pages/HomePage/HomePage";
+import VideoUploadPage from "./pages/VideoUploadPage/VideoUploadPage";
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
 
