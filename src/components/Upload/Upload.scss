@@ -1,0 +1,177 @@
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+
+.upload {
+    @include flexbox(column, 1rem);
+    @include padding-mobile (0);
+
+    // Start of Responsiveness
+    @include tablet {
+        @include flexbox(column, 1.25rem);
+        @include padding-tablet;
+        justify-content: space-between;
+        max-width: 67rem;
+        margin: 0 auto;
+    }
+
+    @include desktop {
+        padding-right: 0;
+        width: 100%;
+    }
+
+    &__title {
+        margin: 0;
+        @include h1-mobile;
+        font-weight: $demi;
+    
+        @include tablet {
+          @include h1-tablet;
+          padding-bottom: 1.5rem;
+          border-bottom: 1px solid $color-mercury;
+          font-weight: $demi;
+        }
+    }
+
+    &__section {
+        @include flexbox (column);
+    }
+
+    &__subtitle {
+        @include h3-mobile;
+        font-weight: $demi;
+        color: $color-silver;
+        margin: 0;
+        padding-bottom: 0.25rem;
+
+        @include tablet {
+            @include h3-tablet;
+            font-weight: $demi;
+        }
+
+        @include desktop {
+            font-weight: $demi;
+        }
+    }
+
+    &__image {
+        height: 100%;
+        width: 100%;
+        border-radius: .25rem;
+
+        @include tablet {
+            height: 50%;
+            width: 50%;
+        }
+    }
+
+    &__form {
+        @include flexbox(column, 1.5rem);
+        width: 100%;
+    
+        @include tablet {
+          gap: 1.25rem;
+          width: 100%;
+        }
+    
+        @include desktop {
+          padding-right: 1.5rem;
+        }
+    }
+
+    &__container {
+        @include flexbox (column, 0.25rem);
+
+        @include tablet {
+            // margin-bottom: 1.5rem;
+            border-bottom: 1px solid $color-mercury;
+        }
+    }
+
+    &__label {
+        @include h3-mobile;
+        font-weight: $demi;
+        color: $color-silver;
+    }
+
+    &__input {
+        border: 1px solid $color-mercury;
+        width: 100%;
+        border-radius: 0.25rem;
+        padding: 0.625rem;
+        background-color: $color-alabaster;
+        font-family: $font-family;
+    
+        @include tablet {
+          @include h3-tablet;
+          width: 100%;
+        }
+
+        &:focus {
+            outline: 1px solid $color-blue;
+          }
+      
+          &::placeholder {
+            // Styles for the placeholder text
+            @include h3-mobile;
+            font-weight: $regular;
+            color: $color-black;
+            font-family: $font-family;
+          }
+    }
+
+    &__text-area {
+        border: 1px solid $color-mercury;
+        width: 100%;
+        border-radius: 0.25rem;
+        padding: 0.625rem;
+        background-color: $color-alabaster;
+        font-family: $font-family;
+    
+        @include tablet {
+          height: 2.5rem;
+        }
+    
+        &:focus {
+          outline: 1px solid $color-blue;
+        }
+    
+        &::placeholder {
+          // Styles for the placeholder text
+          @include h3-mobile;
+          font-weight: $regular;
+          color: $color-black;
+          font-family: $font-family;
+        }
+    }
+    
+    &__button {
+        width: 100%;
+        background: url("../../assets/images/Icons/publish.svg") no-repeat
+        0.75rem center;
+        @include button-default;
+    
+        // Start of Responsiveness
+        @include tablet {
+        width: 11.25rem;
+        align-self: flex-end;
+        margin-top: 5rem;
+        }
+    
+        &:hover {
+        @include button-hover;
+        }
+
+        &--cancel {
+            width: 100%; 
+            @include button-default;
+            background-color: $color-white;
+            color: $color-blue;
+
+            &:hover {
+                color: $color-darkBlue;
+              }
+        }
+    }
+}

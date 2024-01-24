@@ -12,7 +12,4 @@ function VideoUploadPage() {
       );
   };
 
-
-
-
 export default VideoUploadPage;

@@ -23,7 +23,7 @@ function HomePage() {
           <Description currentVideo={currentVideo}/>
           <Comments comments={currentVideo.comments}/>
         </div>
-        <Videos setVideoFunction={setVideoFunction} currentVideo={currentVideo}/>
+        <Videos setVideo={setVideo} currentVideo={currentVideo}/>
       </section>
     </main>
   );
