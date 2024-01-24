@@ -3,40 +3,28 @@ import Video from "../Video/Video";
 
 import videoData from "../../data/video-details.json";
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
 
-const Videos = () => {
+const Videos = ({ currentVideo }) => {
 
-const [ videos, setVideo ] = useState([]);
-const { videoId } = useParams();
-
-const fetchVideo = async() => {
-    const videoData = await axios.get("https://project-2-api.herokuapp.com/videos?api_key=bd1e11cb-678d-4496-b971-9f9fb4fdae4e")
-    setVideo(videoData.data)
-}
-
-useEffect(() => {
-    fetchVideo();
-},[])
-
-console.log('update video list');
-
-const currentImage = videos.find(video => video.id === (videoId || videos[0].id))
+// const fetchVideo = async() => {
+//     const videoData = await axios.get("https://project-2-api.herokuapp.com/videos?api_key=bd1e11cb-678d-4496-b971-9f9fb4fdae4e")
+//     setVideos(videoData.data)
+// }
 
 return (  
     <section className="videos">
       <h2 className="videos__title">NEXT VIDEOS</h2>
 
       <ul className="video">
-        {videos.map(video => 
-            <Video 
+        {videoData.map(video => {
+            if (video.id !== currentVideo) {
+
+            return (<Video 
               key={video.id}
-              id={video.id}
-              video={video}
-              setVideo={setVideo}   
-            />
+              id={video.id} 
+            />)}}
         )}
       </ul>
     </section>

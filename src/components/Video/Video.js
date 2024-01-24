@@ -1,11 +1,12 @@
 import "./Video.scss";
 
+import videoData from "../../data/video-details.json";
+
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
 const Video = ({ id }) => {
-
   const [ videoDetails, setVideoDetails ] = useState({})
   
   const fetchFullVideoDetails = async () => {
@@ -14,12 +15,17 @@ const Video = ({ id }) => {
   }
 
   useEffect(() => {
-      fetchFullVideoDetails();
+    
+      const video = videoData.find ((item) => {
+      return item.id === id;
+    }); 
+      setVideoDetails(video)
+      // fetchFullVideoDetails();
   },[])
 
   return (
 
-    <li className="video__alignment" key={videoDetails.image} onClick={() => setVideoDetails(videoDetails)}>
+    <li className="video__alignment" key={videoDetails.image}>
     <div className="video__container">
       <Link to={`/${id}`}><img className="video__image" src={videoDetails.image} alt={videoDetails.title}></img></Link>
     </div>
