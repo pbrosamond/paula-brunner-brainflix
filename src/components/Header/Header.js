@@ -4,11 +4,12 @@ import avatarImage from "../../../src/assets/images/Mohan-muruge.jpg";
 
 import { Link, NavLink } from "react-router-dom";
 
-
 function Header() {
   return (
     <section className="header">
-      <Link to="/"><img className="header__logo" src={logo} alt="BrainFlix Logo"></img></Link>
+      <Link to="/">
+        <img className="header__logo" src={logo} alt="BrainFlix Logo"></img>
+      </Link>
       <div className="header__items">
         <div className="header__container">
           <input
@@ -23,7 +24,9 @@ function Header() {
             alt="Profile Picture"
           ></img>
         </div>
-        <Link to="upload"><button className="header__button">UPLOAD</button></Link>
+        <Link to="upload">
+          <button className="header__button">UPLOAD</button>
+        </Link>
         <img
           className="header__profile--tablet"
           src={avatarImage}

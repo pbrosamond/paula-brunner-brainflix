@@ -3,7 +3,6 @@ import "./Video.scss";
 import { Link } from "react-router-dom";
 
 const Video = ({ videoData: videoDetails }) => {
-
   return (
     <li className="video__alignment" key={videoDetails.image}>
       <div className="video__container">

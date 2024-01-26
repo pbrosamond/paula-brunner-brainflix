@@ -4,12 +4,11 @@ import "./Upload.scss";
 import thumbnail from "../../../src/assets/images/Upload-video-preview.jpg";
 
 function Upload() {
-
   const navigate = useNavigate();
-  
+
   function publish() {
-    alert ('Upload Successful');
-    navigate('/');
+    alert("Upload Successful");
+    navigate("/");
   }
 
   return (
@@ -42,7 +41,9 @@ function Upload() {
           ></textarea>
         </div>
 
-        <button onClick={publish} className="upload__button">PUBLISH</button>
+        <button onClick={publish} className="upload__button">
+          PUBLISH
+        </button>
       </form>
 
       <Link to="/">
