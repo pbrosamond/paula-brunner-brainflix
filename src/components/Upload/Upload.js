@@ -1,8 +1,17 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 import "./Upload.scss";
 import thumbnail from "../../../src/assets/images/Upload-video-preview.jpg";
 
 function Upload() {
+
+  const navigate = useNavigate();
+  
+  function publish() {
+    alert ('Upload Successful');
+    navigate('/');
+  }
+
   return (
     <section className="upload">
       <h1 className="upload__title">Upload Video</h1>
@@ -33,7 +42,7 @@ function Upload() {
           ></textarea>
         </div>
 
-        <button className="upload__button">PUBLISH</button>
+        <button onClick={publish} className="upload__button">PUBLISH</button>
       </form>
 
       <Link to="/">
