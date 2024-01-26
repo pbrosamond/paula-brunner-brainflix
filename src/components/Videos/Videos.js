@@ -1,33 +1,45 @@
 import "./Videos.scss";
 import Video from "../Video/Video";
+import { useState, useEffect } from "react";
+import { useParams, Link } from "react-router-dom"; // Import Link from react-router-dom
 
-import videoData from "../../data/video-details.json";
+import axios from "axios";
 
-import axios from 'axios';
+const Videos = () => {
+  const [videoList, setVideoList] = useState([]);
+  const { videoId } = useParams();
 
-const Videos = ({currentVideoId}) => {
+  const fetchVideoList = async () => {
+    const videoData = await axios.get(
+      "https://project-2-api.herokuapp.com/videos?api_key=76b4df0c-4116-4b68-acd9-d0a0d3a8426b"
+    );
+    setVideoList(videoData.data);
+  };
 
-// const fetchVideo = async() => {
-//     const videoData = await axios.get("https://project-2-api.herokuapp.com/videos?api_key=bd1e11cb-678d-4496-b971-9f9fb4fdae4e")
-//     setVideos(videoData.data)
-// }
+  useEffect(() => {
+    fetchVideoList();
+  }, [videoId]);
 
-    return (
-        <section className="videos">
-            <h2 className="videos__title">NEXT VIDEOS</h2>
-            <ul className="video">
-                {videoData.map(video => {
-                    if (video.id !== currentVideoId) {
-                        return (<Video
-                            key={video.id}
-                            videoData={video}
-                        />)
-                    }
-                })}
-            </ul>
-        </section>
-    )
-}
+  const currentVideoId = videoList.find(
+    (video) => video.id === (videoId || videoList[0].id)
+  );
+
+  return (
+    <section className="videos">
+      <h2 className="videos__title">NEXT VIDEOS</h2>
+      <ul className="video">
+        {videoList.map((video) => {
+          if (video.id !== currentVideoId?.id) {
+            return (
+              <Link to={`/${video.id}`} key={video.id}>
+                <Video id={video.id} />
+              </Link>
+            );
+          }
+        })}
+      </ul>
+    </section>
+  );
+};
 
 export default Videos;
-

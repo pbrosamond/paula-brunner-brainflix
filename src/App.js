@@ -7,7 +7,6 @@ import VideoUploadPage from "./pages/VideoUploadPage/VideoUploadPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
-
   return (
     <BrowserRouter>
       <Header />

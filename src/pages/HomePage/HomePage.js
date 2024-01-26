@@ -11,7 +11,7 @@ import { useParams } from "react-router-dom";
 
 function HomePage() {
   // Get the videoId from the router and name it as routeVideoId // Only works for object deconstruction.
-  const {videoId: routeVideoId} = useParams();
+  const { videoId: routeVideoId } = useParams();
   // Initialise state for the videoId and the videoData, with no default -
   // useEffect takes care of setting it up based on whether the route provided a videoId or not
   const [videoId, setVideoId] = useState();
@@ -49,7 +49,7 @@ function HomePage() {
             <Description currentVideo={videoData} />
             <Comments comments={videoData.comments} />
           </div>
-          <Videos currentVideoId={videoId}/>
+          <Videos currentVideoId={videoId} />
         </section>
       </main>
     );

@@ -1,25 +1,48 @@
+import { useState, useEffect } from "react";
 import "./Video.scss";
 import { Link } from "react-router-dom";
-// import axios from "axios";
+import axios from "axios";
 
-const Video = ({ videoData }) => {
-  // const fetchFullVideoDetails = async () => {
-  //     const videoDetailsResponse = await axios.get(`https://project-2-api.herokuapp.com/videos/${id}?api_key=bd1e11cb-678d-4496-b971-9f9fb4fdae4e`)
-  //     setVideoDetails(videoDetailsResponse.data)
-  // }
+const Video = ({ id }) => {
+  const [videoDetails, setVideoDetails] = useState({});
+
+  const fetchFullVideoDetails = async () => {
+    try {
+      const videoDetailsResponse = await axios.get(
+        `https://project-2-api.herokuapp.com/videos/${id}?api_key=76b4df0c-4116-4b68-acd9-d0a0d3a8426b`
+      );
+      setVideoDetails(videoDetailsResponse.data);
+    } catch (error) {
+      // Handle the error, for example, log it or set a default value for videoDetails
+      console.error("Error fetching video details:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchFullVideoDetails();
+  }, []);
 
   return (
-
-    <li className="video__alignment" key={videoData.image}>
-    <div className="video__container">
-      <Link to={`/${videoData.id}`}><img className="video__image" src={videoData.image} alt={videoData.title}></img></Link>
-    </div>
-    <div className="video__subcontainer">
-      <Link to={`/${videoData.id}`}><p className="video__title">{videoData.title}</p></Link>
-      <Link to={`/${videoData.id}`}><p className="video__author">{videoData.channel}</p></Link>
-    </div>
-  </li>
-  )
-}
+    <li className="video__alignment" key={videoDetails.image}>
+      <div className="video__container">
+        <Link to={`/${id}`}>
+          <img
+            className="video__image"
+            src={videoDetails.image}
+            alt={videoDetails.title}
+          ></img>
+        </Link>
+      </div>
+      <div className="video__subcontainer">
+        <Link to={`/${id}`}>
+          <p className="video__title">{videoDetails.title}</p>
+        </Link>
+        <Link to={`/${id}`}>
+          <p className="video__author">{videoDetails.channel}</p>
+        </Link>
+      </div>
+    </li>
+  );
+};
 
 export default Video;
