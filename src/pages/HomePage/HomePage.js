@@ -9,76 +9,72 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 
 function HomePage() {
-  // Get the videoId from the router and name it as routeVideoId // Only works for object deconstruction.
-  const { videoId: routeVideoId } = useParams();
-  // Initialise state for the videoId and the videoData, with no default -
-  // useEffect takes care of setting it up based on whether the route provided a videoId or not
-  const [videoId, setVideoId] = useState();
-  const [videoData, setVideoData] = useState();
-  const [videoList, setVideoList] = useState();
+  // useParams calling a specific route
+  const { videoId } = useParams();
 
-  const fetchVideoList = async () => {
-    const videoList = await axios.get(
-      "https://project-2-api.herokuapp.com/videos?api_key=76b4df0c-4116-4b68-acd9-d0a0d3a8426b"
-    );
-    console.log(videoList.data);
-    setVideoList(videoList.data);
+  // useState to set default state for videoData and currentVideoData and pass props
+  const [videoData, setVideoData] = useState();
+  const [currentVideoData, setCurrentVideoData] = useState();
+
+  // api get request from correct api location /video for videoData
+  const fetchVideoData = async () => {
+    try {
+      const response = await axios.get(
+        `https://project-2-api.herokuapp.com/videos/?api_key=76b4df0c-4116-4b68-acd9-d0a0d3a8426b`
+      );
+      setVideoData(response.data);
+      return response.data;
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  // api get request from correct api location /video/:id for currentVideoData
+  const fetchCurrentVideoData = async (id) => {
+    try {
+      const response = await axios.get(
+        `https://project-2-api.herokuapp.com/videos/${id}?api_key=76b4df0c-4116-4b68-acd9-d0a0d3a8426b`
+      );
+      setCurrentVideoData(response.data);
+      return response.data;
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const getDefaultVideoData = async () => {
+    try {
+      const response = await fetchVideoData(); // first, fetch the list of data
+      fetchCurrentVideoData(response[0].id); // fetch detail by passing in the first item's id
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   useEffect(() => {
-    fetchVideoList();
-  }, []);
-
-  // Set up an effect to handle changes to the route
-  // Only runs when the routeVideoId changes - because of [routeVideoId] as the second argument at the end
-  // See: https://react.dev/reference/react/useEffect
-  // Look for the second argument of "dependencies"
-  useEffect(() => {
-    if (!videoList) {
-      return;
+    if (videoId) {
+      fetchVideoData();
+      fetchCurrentVideoData(videoId);
+    } else {
+      getDefaultVideoData();
     }
+  }, [videoId]);
 
-    (async () => {
-      // If there is a video ID from the route, use that
-      if (routeVideoId) {
-        setVideoId(routeVideoId);
-        setVideoData(await getVideoData(routeVideoId));
-      }
-      // Otherwise use the first video from the data file
-      else {
-        setVideoId(videoList[0].id);
-        setVideoData(await getVideoData(videoList[0].id));
-      }
-    })();
-  }, [routeVideoId, videoList]);
-
-  // Get video data for a videoId
-  async function getVideoData(videoId) {
-    const video = await axios.get(
-      `https://project-2-api.herokuapp.com/videos/${videoId}?api_key=76b4df0c-4116-4b68-acd9-d0a0d3a8426b`
-    );
-    return video.data;
-  }
-
-  // Only render once the videoId and videoData have been established
-  if (videoList && videoId && videoData) {
+  if (videoData && currentVideoData) {
     return (
       <main>
-        <Hero videoData={videoData} />
+        <Hero videoData={currentVideoData} />
         <section className="section">
           <div className="section__main">
-            <Description currentVideo={videoData} />
-            <Comments comments={videoData.comments} />
+            <Description description={currentVideoData} />
+            <Comments comments={currentVideoData.comments} />
           </div>
-          <Videos currentVideoId={videoId} videoList={videoList} />
+          <Videos currentVideoData={currentVideoData} videoData={videoData} />
         </section>
       </main>
     );
   }
-  // Otherwise render nothing
-  else {
-    return "";
-  }
+  return "";
 }
 
 export default HomePage;

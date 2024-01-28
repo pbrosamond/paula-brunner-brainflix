@@ -10,7 +10,7 @@ function Comments({ comments }) {
         <img
           className="comments__profile"
           src={avatarImage}
-          alt="Profile Picture"
+          alt="Profile"
         ></img>
         <form className="comments__form">
           <div className="comments__input">

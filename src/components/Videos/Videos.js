@@ -1,16 +1,14 @@
 import "./Videos.scss";
 import Video from "../Video/Video";
 
-const Videos = ({ videoList, currentVideoId }) => {
+const Videos = ({ videoData, currentVideoData }) => {
   return (
     <section className="videos">
       <h2 className="videos__title">NEXT VIDEOS</h2>
       <ul className="video">
-        {videoList.map((videoData) => {
-          if (videoData.id !== currentVideoId) {
-            return (
-                <Video videoData={videoData} key={videoData.id}/>
-            );
+        {videoData.map((video) => {
+          if (video.id !== currentVideoData.id) {
+            return <Video videoData={video} key={video.id} />;
           }
         })}
       </ul>

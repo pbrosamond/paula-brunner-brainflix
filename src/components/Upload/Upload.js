@@ -41,7 +41,7 @@ function Upload() {
           ></textarea>
         </div>
 
-        <button onClick={publish} className="upload__button">
+        <button onClick={publish} type="button" className="upload__button">
           PUBLISH
         </button>
       </form>
