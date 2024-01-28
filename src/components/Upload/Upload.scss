@@ -4,12 +4,12 @@
 @use "../../styles/partials/typography" as *;
 
 .upload {
-  @include flexbox(column, 1rem);
-  @include padding-mobile(0);
+  @include flexbox(column, 1.5rem);
+  @include padding-mobile;
 
   // Start of Responsiveness
   @include tablet {
-    @include flexbox(column, 1.25rem);
+    @include flexbox(column, 2rem);
     @include padding-tablet;
     justify-content: space-between;
     max-width: 67rem;
@@ -29,8 +29,21 @@
     @include tablet {
       @include h1-tablet;
       padding-bottom: 1.5rem;
-      border-bottom: 1px solid $color-mercury;
+      border-bottom: .0625rem solid $color-mercury;
       font-weight: $demi;
+    }
+  }
+
+  &__main {
+    @include flexbox(column, 1.5rem);
+
+    @include tablet {
+      padding-bottom: 2rem;
+      border-bottom: .0625rem solid $color-mercury;
+    }
+
+    @include desktop {
+      @include flexbox (row, 1.5rem);
     }
   }
 
@@ -58,45 +71,57 @@
   &__image {
     height: 100%;
     width: 100%;
+    max-width: 22.875rem;
     border-radius: 0.25rem;
 
     @include tablet {
       height: 50%;
       width: 50%;
     }
+
+    @include desktop {
+      height: 100%;
+      width: 100%;
+      max-width: 30rem;
+    }
   }
 
   &__form {
-    @include flexbox(column, 1.5rem);
+    @include flexbox (column, 1.5rem);
     width: 100%;
 
     @include tablet {
-      gap: 1.25rem;
       width: 100%;
     }
 
-    @include desktop {
-      padding-right: 1.5rem;
+  }
+
+  &__details {
+    @include flexbox (column, 1.5rem);
+
+    @include tablet {
+      padding-bottom: 2rem;
+      border-bottom: .0625rem solid $color-mercury;
     }
   }
 
   &__container {
-    @include flexbox(column, 0.25rem);
-
-    @include tablet {
-      // margin-bottom: 1.5rem;
-      border-bottom: 1px solid $color-mercury;
-    }
+    @include flexbox(column, 0.5rem);
   }
 
   &__label {
     @include h3-mobile;
     font-weight: $demi;
     color: $color-silver;
+
+    @include tablet {
+      @include h3-tablet;
+      font-weight: $demi;
+    }
   }
 
   &__input {
-    border: 1px solid $color-mercury;
+    border: .0625rem solid $color-mercury;
     width: 100%;
     border-radius: 0.25rem;
     padding: 0.625rem;
@@ -109,7 +134,7 @@
     }
 
     &:focus {
-      outline: 1px solid $color-blue;
+      outline: .0625rem solid $color-blue;
     }
 
     &::placeholder {
@@ -122,19 +147,15 @@
   }
 
   &__text-area {
-    border: 1px solid $color-mercury;
+    border: .0625rem solid $color-mercury;
     width: 100%;
     border-radius: 0.25rem;
     padding: 0.625rem;
     background-color: $color-alabaster;
     font-family: $font-family;
 
-    @include tablet {
-      height: 2.5rem;
-    }
-
     &:focus {
-      outline: 1px solid $color-blue;
+      outline: .0625rem solid $color-blue;
     }
 
     &::placeholder {
@@ -143,6 +164,15 @@
       font-weight: $regular;
       color: $color-black;
       font-family: $font-family;
+    }
+  }
+
+  &__buttons {
+    @include flexbox (column, 1.5rem);
+
+    @include tablet {
+      @include flexbox (row-reverse, 1.5rem);
+      justify-content: flex-start;
     }
   }
 
@@ -155,8 +185,6 @@
     // Start of Responsiveness
     @include tablet {
       width: 11.25rem;
-      align-self: flex-end;
-      margin-top: 5rem;
     }
 
     &:hover {
@@ -168,6 +196,10 @@
       @include button-default;
       background-color: $color-white;
       color: $color-blue;
+
+      @include tablet {
+        width: 11.25rem;
+      }
 
       &:hover {
         color: $color-darkBlue;

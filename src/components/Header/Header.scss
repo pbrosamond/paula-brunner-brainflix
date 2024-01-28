@@ -7,6 +7,8 @@
   @include flexbox(column, 1rem);
   @include padding-mobile(1rem);
   background-color: $color-white;
+  border-bottom: 1px solid $color-mercury;
+  align-items: center;
 
   // Start of Responsiveness
   @include tablet {
@@ -38,7 +40,7 @@
   }
 
   &__container {
-    @include flexbox;
+    @include flexbox (row, 1rem);
     justify-content: space-between;
 
     // Start of Responsiveness

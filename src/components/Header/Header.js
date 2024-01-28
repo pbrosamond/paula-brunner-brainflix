@@ -2,7 +2,7 @@ import "./Header.scss";
 import logo from "../../../src/assets/images/Logo/BrainFlix-logo.svg";
 import avatarImage from "../../../src/assets/images/Mohan-muruge.jpg";
 
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
