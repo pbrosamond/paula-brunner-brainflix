@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import "./Video.scss";
 import { Link } from "react-router-dom";
 

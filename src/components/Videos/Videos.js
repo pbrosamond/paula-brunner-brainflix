@@ -1,6 +1,5 @@
 import "./Videos.scss";
 import Video from "../Video/Video";
-import { Link } from "react-router-dom"; // Import Link from react-router-dom
 
 const Videos = ({ videoList, currentVideoId }) => {
   return (
@@ -10,9 +9,7 @@ const Videos = ({ videoList, currentVideoId }) => {
         {videoList.map((videoData) => {
           if (videoData.id !== currentVideoId) {
             return (
-              <Link to={`/${videoData.id}`} key={videoData.id}>
-                <Video videoData={videoData} />
-              </Link>
+                <Video videoData={videoData} key={videoData.id}/>
             );
           }
         })}
