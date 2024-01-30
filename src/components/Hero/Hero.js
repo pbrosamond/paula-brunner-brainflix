@@ -1,13 +1,13 @@
 import "./Hero.scss";
 
-function Hero({ videoData }) {
+function Hero({ currentVideoData }) {
   return (
     <section className="hero">
       <video
         className="hero__video"
         controls
-        alt={videoData.title}
-        poster={videoData.image}
+        alt={currentVideoData.title}
+        poster={currentVideoData.image}
       ></video>
     </section>
   );
