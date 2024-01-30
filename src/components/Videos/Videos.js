@@ -38,7 +38,7 @@ const Videos = ({ currentVideoData }) => {
       </section>
     );
   }
-  return "Loading Videos";
+  return "";
 };
 
 export default Videos;

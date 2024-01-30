@@ -49,7 +49,7 @@ function HomePage() {
       </main>
     );
   }
-  return "Loading HomePage";
+  return "";
 }
 
 export default HomePage;
