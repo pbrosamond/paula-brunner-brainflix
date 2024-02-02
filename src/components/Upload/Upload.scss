@@ -127,10 +127,13 @@
     padding: 0.625rem;
     background-color: $color-alabaster;
     font-family: $font-family;
+    font-weight: $regular;
 
     @include tablet {
       @include h3-tablet;
       width: 100%;
+      font-weight: $regular;
+
     }
 
     &:focus {

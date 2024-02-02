@@ -10,7 +10,7 @@ const Videos = ({ currentVideoData }) => {
   const fetchVideoData = async () => {
     try {
       const response = await axios.get(
-        `https://project-2-api.herokuapp.com/videos/?api_key=76b4df0c-4116-4b68-acd9-d0a0d3a8426b`
+        `http://localhost:5050/videos/`
       );
       setVideoData(response.data);
     } catch (error) {

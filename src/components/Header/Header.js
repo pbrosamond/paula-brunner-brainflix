@@ -21,7 +21,7 @@ function Header() {
           <img
             className="header__profile"
             src={avatarImage}
-            alt="Profile Picture"
+            alt="Profile"
           ></img>
         </div>
         <Link to="upload">
@@ -30,7 +30,7 @@ function Header() {
         <img
           className="header__profile--tablet"
           src={avatarImage}
-          alt="Profile Picture"
+          alt="Profile"
         ></img>
       </div>
     </section>
