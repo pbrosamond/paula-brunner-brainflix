@@ -21,7 +21,7 @@
 
   @include desktop {
     padding-right: 0;
-    width: 100%;
+    min-width: 49rem;
   }
 
   &__title {

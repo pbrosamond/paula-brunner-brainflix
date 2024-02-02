@@ -20,11 +20,7 @@ function Upload() {
       console.error("The error is in the publishData:", error);
     }
   };
-
-  useEffect(() => {
-    // If you need to perform any actions when formData changes, you can do it here.
-  }, [formData]);
-
+  
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     console.log()
