@@ -1,23 +1,23 @@
 import "./Video.scss";
 import { Link } from "react-router-dom";
 
-const Video = ({ videoData }) => {
+const Video = ({ video }) => {
   return (
-    <li className="video__alignment" key={videoData.image}>
+    <li className="video__alignment">
       <div className="video__container">
-        <Link to={`/${videoData.id}`}>
+        <Link to={`/${video.id}`}>
           <img
             className="video__image"
-            src={videoData.image}
-            alt={videoData.title}
+            src={video.image}
+            alt={video.title}
           ></img>
         </Link>
       </div>
       <div className="video__subcontainer">
-        <Link to={`/${videoData.id}`}>
-          <p className="video__title">{videoData.title}</p>
+        <Link to={`/${video.id}`}>
+          <p className="video__title">{video.title}</p>
         </Link>
-          <p className="video__author">{videoData.channel}</p>
+        <p className="video__author">{video.channel}</p>
       </div>
     </li>
   );
