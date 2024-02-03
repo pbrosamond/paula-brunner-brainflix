@@ -9,6 +9,7 @@ function Upload() {
   const [formData, setFormData] = useState({
     title: "",
     description: "",
+    image: "http://127.0.0.1:5050/Upload-video-preview.jpg"
   });
 
   const publishData = async () => {
